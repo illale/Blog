@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Moro</title>
+        <title>Blog</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<meta charset="utf-8">
 				<link rel="stylesheet" href="card.css">
     </head>
-    <body>
+    <body onload="load();" id="main-body" class="main-body">
         <div class="row">
 					<div class="card-hover col-3">
-						<img onclick="showHidden(this)" id="article" class="card-regular-image" src="static/aurora.jpg" alt="Aurora">
+						<img onclick="showHidden(this)" id="article" class="card-hover-image" src="static/aurora.jpg" alt="Aurora">
 						<div class="card-heading">
 							<h1> Talvi-ilta </h1>
 						</div>
 					</div>
 					<div class="card-hover col-6">
-						<img class="card-regular-image" src="static/autumn.jpg" alt="Autumn">
+						<img class="card-hover-image" src="static/autumn.jpg" alt="Autumn">
 						<div class="card-heading">
 							<h1> Kesäilta </h1>
 						</div>
 					</div>
 					<div class="card-hover col-9">
-						<img class="card-regular-image" src="static/butterfly.jpg" alt="Butterfly">
+						<img class="card-hover-image" src="static/butterfly.jpg" alt="Butterfly">
 						<div class="card-heading">
 							<h1> Metsän yö </h1>
 						</div>
@@ -28,19 +29,19 @@
         </div>
 				<div class="row">
 					<div class="card-hover col-3">
-						<img class="card-regular-image" src="static/fog.jpg" alt="Fog">
+						<img class="card-hover-image" src="static/fog.jpg" alt="Fog">
 						<div class="card-text">
 							<h1> Aamu </h1>
 						</div>
 					</div>
 					<div class="card-hover col-6">
-						<img class="card-regular-image" src="static/forest.jpg" alt="Forest">
+						<img class="card-hover-image" src="static/forest.jpg" alt="Forest">
 						<div class="card-text">
 							<h1> Aamu </h1>
 						</div>
 					</div>
 					<div class="card-hover col-9">
-						<img class="card-regular-image" src="static/nature.jpg" alt="Nature">
+						<img class="card-hover-image" src="static/nature.jpg" alt="Nature">
 						<div class="card-text">
 							<h1> Aamu </h1>
 						</div>
@@ -48,46 +49,68 @@
         </div>
 				<div class="row">
 					<div class="card-hover col-3">
-						<img class="card-regular-image" src="static/spring-bird.jpg" alt="Spring-Bird">
+						<img class="card-hover-image" src="static/spring-bird.jpg" alt="Spring-Bird">
 						<div class="card-text">
 							<h1> Aamu </h1>
 						</div>
 					</div>
 					<div class="card-hover col-6">
-						<img class="card-regular-image" src="static/rocks.jpg" alt="Rocks">
+						<img class="card-hover-image" src="static/rocks.jpg" alt="Rocks">
 						<div class="card-text">
 							<h1> Aamu </h1>
 						</div>
 					</div>
 					<div class="card-hover col-9">
-						<img class="card-regular-image" src="static/sunrise.jpg" alt="Sunrise">
+						<img class="card-hover-image" src="static/sunrise.jpg" alt="Sunrise">
 						<div class="card-text">
 							<h1> Aamu </h1>
 						</div>
 					</div>
         </div>
-				<div onclick="showHidden('id1')"class="article" id="id1">
-					<div class="article-text">
-						<h1> good morgon </h1>
-						<p> I hate you </p>
+				<div onclick="showHidden('id1');" class="article" id="id1">
+					<div onclick="showHidden('id123');" id="id2" class="article-text">
+						<h1 style="text-align: center;"> Kafka trap </h1>
+						<img src="static/aurora.jpg" alt="Aurora">
+						<p>One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.</p>
+
+						<p>He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.</p>
+
+						<p>The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked.</p>
+
+						<p>"What's happened to me? " he thought. It wasn't a dream. His room, a proper human room although a little too small, lay peacefully between its four familiar walls.</p>
+
+						<p>A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
+
+						<p>It showed a lady fitted out with a fur hat and fur boa who sat upright, raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then turned to look out the window at the dull weather. Drops</p>
 					</div>
 				</div>
 				<script>
+					function load() {
+						let elem = document.getElementById("id1");
+						elem.addEventListener("onClick", showHidden, false);
+					}
+
 					function showHidden(id) {
+						if (id === "id123") {
+							event.stopPropagation();
+							return;
+						}
 						if (id != "id1") {
+							document.getElementById("main-body").style.overflow = "hidden";
 							document.getElementById("id1").style.display = "block";
-							let inter = setInterval(frame, 4);
+							let inter = setInterval(frame, 5);
 							let top = 100;
 							function frame() {
 								if (top == 0) {
 									clearInterval(inter);
 								} else {
-									top -= 0.5;
+									top -= 10;
 									document.getElementById("id1").style.top = top + "%";
 								}
 							}
 						} else {
-							document.getElementById("id1").style.display = "none"
+							document.getElementById("id1").style.display = "none";
+							document.getElementById("main-body").style.overflow = "scroll";
 						}
 					}
 				</script>
