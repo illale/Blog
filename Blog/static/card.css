@@ -144,7 +144,37 @@ body {
 		height: auto;
 		width: 80%;
 		margin: 2% auto;
+		padding: 5%;
+		font-size: 1.4rem;
+		line-height: 1.2;
+		font-family: 'Open Sans';
 	}
+	.article-header-container {
+		border-bottom: 2px solid black;
+		border-width: 90%;
+		margin-bottom: 3%;
+		padding: 0;
+		text-align: center;
+	}
+
+	#article-header {
+		margin-bottom: 0;
+		padding: 0;
+	}
+
+	.article-image {
+		width: 100%;
+	}
+
+	.article-profile {
+		border: 1px solid black;
+		border-radius: 100%;
+		width: 7.5%;
+		display: inline-block;
+		float: left;
+		margin: 0 2.5%;
+	}
+
 	.stop-scrolling {
 		overflow: hidden;
 	}

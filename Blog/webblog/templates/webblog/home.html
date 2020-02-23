@@ -6,76 +6,86 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<meta charset="utf-8">
 				<link rel="stylesheet" href="{% static 'card.css' %}">
+				<link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     </head>
     <body onload="load();" id="main-body" class="main-body">
 			{% block body %}
-        <div class="row">
-					<div class="card-hover col-3">
-						<img onclick="showHidden(9);" id="article" class="card-hover-image" src="{{ article1.article_image.url }}" alt="Aurora">
-						<div class="card-heading">
-							<h1> {{ article1.article_header }}</h1>
-						</div>
-					</div>
-					<div onclick="showHidden(8)" class="card-hover col-6">
-						<img class="card-hover-image" src="{{ article2.article_image.url }}" alt="Autumn">
-						<div class="card-heading">
-							<h1> {{ article2.article_header }} </h1>
-						</div>
-					</div>
-					<div onclick="showHidden(7)" class="card-hover col-9">
-						<img class="card-hover-image" src="{{ article3.article_image.url }}" alt="Butterfly">
-						<div class="card-heading">
-							<h1> {{ article3.article_header }} </h1>
-						</div>
-					</div>
-        </div>
-				<div class="row">
-					<div onclick="showHidden(6)" class="card-hover col-3">
-						<img class="card-hover-image" src="{{ article4.article_image.url }}" alt="Fog">
-						<div class="card-text">
-							<h1> {{ article4.article_header }} </h1>
-						</div>
-					</div>
-					<div onclick="showHidden(5)" class="card-hover col-6">
-						<img class="card-hover-image" src="{{ article5.article_image.url }}" alt="Forest">
-						<div class="card-text">
-							<h1> {{ article5.article_header }} </h1>
-						</div>
-					</div>
-					<div onclick="showHidden(4)" class="card-hover col-9">
-						<img class="card-hover-image" src="{{ article6.article_image.url }}" alt="Nature">
-						<div class="card-text">
-							<h1> {{ article6.article_header }} </h1>
-						</div>
-					</div>
-        </div>
-				<div class="row">
-					<div onclick="showHidden(3)" class="card-hover col-3">
-						<img class="card-hover-image" src="{{ article7.article_image.url }}" alt="Spring-Bird">
-						<div class="card-text">
-							<h1> {{ article7.article_header }} </h1>
-						</div>
-					</div>
-					<div onclick="showHidden(2)" class="card-hover col-6">
-						<img class="card-hover-image" src="{{ article8.article_image.url }}" alt="Rocks">
-						<div class="card-text">
-							<h1> {{ article8.article_header }} </h1>
-						</div>
-					</div>
-					<div onclick="showHidden(1)" class="card-hover col-9">
-						<img class="card-hover-image" src="{{ article9.article_image.url }}" alt="Sunrise">
-						<div class="card-text">
-							<h1> {{ article9.article_header }} </h1>
-						</div>
-					</div>
-        </div>
-				<div onclick="showHidden('id1');" class="article" id="id1">
-					<div onclick="showHidden('id123');" id="id123" class="article-text">
-						<h1 id="article-header" style="text-align: center;"> </h1>
-						<img id="article-image" src="" alt="Aurora">
-						<p id="article-paragraph"> </p>
+      <div class="row">
+				<div class="card-hover col-3">
+					<img onclick="showHidden(9);" id="article" class="card-hover-image" src="{{ article1.article_image.url }}">
+					<div class="card-heading">
+						<h1> {{ article1.article_header }}</h1>
 					</div>
 				</div>
+				<div onclick="showHidden(8)" class="card-hover col-6">
+					<img class="card-hover-image" src="{{ article2.article_image.url }}">
+					<div class="card-heading">
+						<h1> {{ article2.article_header }} </h1>
+					</div>
+				</div>
+				<div onclick="showHidden(7)" class="card-hover col-9">
+					<img class="card-hover-image" src="{{ article3.article_image.url }}">
+					<div class="card-heading">
+						<h1> {{ article3.article_header }} </h1>
+					</div>
+				</div>
+      </div>
+			<div class="row">
+				<div onclick="showHidden(6)" class="card-hover col-3">
+					<img class="card-hover-image" src="{{ article4.article_image.url }}">
+					<div class="card-text">
+						<h1> {{ article4.article_header }} </h1>
+					</div>
+				</div>
+				<div onclick="showHidden(5)" class="card-hover col-6">
+					<img class="card-hover-image" src="{{ article5.article_image.url }}">
+					<div class="card-text">
+						<h1> {{ article5.article_header }} </h1>
+					</div>
+				</div>
+				<div onclick="showHidden(4)" class="card-hover col-9">
+					<img class="card-hover-image" src="{{ article6.article_image.url }}">
+					<div class="card-text">
+						<h1> {{ article6.article_header }} </h1>
+					</div>
+				</div>
+      </div>
+			<div class="row">
+				<div onclick="showHidden(3)" class="card-hover col-3">
+					<img class="card-hover-image" src="{{ article7.article_image.url }}">
+					<div class="card-text">
+						<h1> {{ article7.article_header }} </h1>
+					</div>
+				</div>
+				<div onclick="showHidden(2)" class="card-hover col-6">
+					<img class="card-hover-image" src="{{ article8.article_image.url }}">
+					<div class="card-text">
+						<h1> {{ article8.article_header }} </h1>
+					</div>
+				</div>
+				<div onclick="showHidden(1)" class="card-hover col-9">
+					<img class="card-hover-image" src="{{ article9.article_image.url }}">
+					<div class="card-text">
+						<h1> {{ article9.article_header }} </h1>
+					</div>
+				</div>
+      </div>
+			<div onclick="showHidden('id1');" class="article" id="id1">
+				<div onclick="showHidden('id123');" id="id123" class="article-text">
+					<div class="article-header-container">
+						<h1 id="article-header"> </h1>
+					</div>
+					<img id="article-image" src="" alt="Picture related to Post" class="article-image">
+					<p id="article-paragraph"> </p>
+					<div class="article-writer">
+						<img src="{% static 'profiili.png' %}" alt="Profile" class="article-profile">
+						<h3 style="line-height: 0.5; margin-top: 2%;"> Doge McDoggerson </h3>
+						<hp> Writer at Blog.blog.blogs.com </p>
+					</div>
+				</div>
+			</div>
 			{% endblock body %}
 			<script>
 				const url = "http://127.0.0.1:8000/home/restarticles/?format=json";
