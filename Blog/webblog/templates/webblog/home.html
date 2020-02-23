@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Blog</title>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<meta charset="utf-8">
+				<link rel="stylesheet" href="{% static 'card.css' %}">
+    </head>
+    <body onload="load();" id="main-body" class="main-body">
+			{% block body %}
+        <div class="row">
+					<div class="card-hover col-3">
+						<img onclick="showHidden(9);" id="article" class="card-hover-image" src="{{ article1.article_image.url }}" alt="Aurora">
+						<div class="card-heading">
+							<h1> {{ article1.article_header }}</h1>
+						</div>
+					</div>
+					<div onclick="showHidden(8)" class="card-hover col-6">
+						<img class="card-hover-image" src="{{ article2.article_image.url }}" alt="Autumn">
+						<div class="card-heading">
+							<h1> {{ article2.article_header }} </h1>
+						</div>
+					</div>
+					<div onclick="showHidden(7)" class="card-hover col-9">
+						<img class="card-hover-image" src="{{ article3.article_image.url }}" alt="Butterfly">
+						<div class="card-heading">
+							<h1> {{ article3.article_header }} </h1>
+						</div>
+					</div>
+        </div>
+				<div class="row">
+					<div onclick="showHidden(6)" class="card-hover col-3">
+						<img class="card-hover-image" src="{{ article4.article_image.url }}" alt="Fog">
+						<div class="card-text">
+							<h1> {{ article4.article_header }} </h1>
+						</div>
+					</div>
+					<div onclick="showHidden(5)" class="card-hover col-6">
+						<img class="card-hover-image" src="{{ article5.article_image.url }}" alt="Forest">
+						<div class="card-text">
+							<h1> {{ article5.article_header }} </h1>
+						</div>
+					</div>
+					<div onclick="showHidden(4)" class="card-hover col-9">
+						<img class="card-hover-image" src="{{ article6.article_image.url }}" alt="Nature">
+						<div class="card-text">
+							<h1> {{ article6.article_header }} </h1>
+						</div>
+					</div>
+        </div>
+				<div class="row">
+					<div onclick="showHidden(3)" class="card-hover col-3">
+						<img class="card-hover-image" src="{{ article7.article_image.url }}" alt="Spring-Bird">
+						<div class="card-text">
+							<h1> {{ article7.article_header }} </h1>
+						</div>
+					</div>
+					<div onclick="showHidden(2)" class="card-hover col-6">
+						<img class="card-hover-image" src="{{ article8.article_image.url }}" alt="Rocks">
+						<div class="card-text">
+							<h1> {{ article8.article_header }} </h1>
+						</div>
+					</div>
+					<div onclick="showHidden(1)" class="card-hover col-9">
+						<img class="card-hover-image" src="{{ article9.article_image.url }}" alt="Sunrise">
+						<div class="card-text">
+							<h1> {{ article9.article_header }} </h1>
+						</div>
+					</div>
+        </div>
+				<div onclick="showHidden('id1');" class="article" id="id1">
+					<div onclick="showHidden('id123');" id="id123" class="article-text">
+						<h1 id="article-header" style="text-align: center;"> </h1>
+						<img id="article-image" src="" alt="Aurora">
+						<p id="article-paragraph"> </p>
+					</div>
+				</div>
+			{% endblock body %}
+			<script>
+				const url = "http://127.0.0.1:8000/home/restarticles/?format=json";
+				function getArticleData(id) {
+					let number = id;
+					fetch(url)
+					.then(function(response) {
+						return response.json();
+					})
+					.then(function(myJson, id) {
+						let obj = myJson[number - 1];
+						document.getElementById("article-header").innerHTML = obj["article_header"];
+						document.getElementById("article-paragraph").innerHTML = obj["article_text"];
+						document.getElementById("article-image").src = obj["article_image"];
+					})
+					.catch(function(error) {
+						console.log(error);
+					});
+				}
+
+				function load() {
+					let elem = document.getElementById("id1");
+					elem.addEventListener("onClick", showHidden, false);
+				}
+
+				function showHidden(id) {
+					console.log(id);
+					getArticleData(id);
+
+					if (id.toString() === "id123") {
+						event.stopPropagation();
+						return;
+					}
+					if (id.toString() != "id1") {
+						document.getElementById("main-body").style.overflow = "hidden";
+						document.getElementById("id1").style.display = "block";
+						let inter = setInterval(frame, 5);
+						let top = 100;
+						function frame() {
+							if (top == 0) {
+								clearInterval(inter);
+							} else {
+								top -= 5;
+								document.getElementById("id1").style.top = top + "%";
+							}
+						}
+					} else {
+						document.getElementById("id1").style.display = "none";
+						document.getElementById("main-body").style.overflow = "scroll";
+					}
+				}
+			</script>
+    </body>
+</html>
