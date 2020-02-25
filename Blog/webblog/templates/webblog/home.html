@@ -1,16 +1,8 @@
+{% extends 'webblog/base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Blog</title>
-				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<meta charset="utf-8">
-				<link rel="stylesheet" href="{% static 'card.css' %}">
-				<link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
-				<link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
-				<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-    </head>
-    <body onload="load();" id="main-body" class="main-body">
+
+{% block content %}
 			{% block body %}
       <div class="row">
 				<div class="card-hover col-3">
@@ -87,56 +79,4 @@
 				</div>
 			</div>
 			{% endblock body %}
-			<script>
-				const url = "http://127.0.0.1:8000/home/restarticles/?format=json";
-				function getArticleData(id) {
-					let number = id;
-					fetch(url)
-					.then(function(response) {
-						return response.json();
-					})
-					.then(function(myJson, id) {
-						let obj = myJson[number - 1];
-						document.getElementById("article-header").innerHTML = obj["article_header"];
-						document.getElementById("article-paragraph").innerHTML = obj["article_text"];
-						document.getElementById("article-image").src = obj["article_image"];
-					})
-					.catch(function(error) {
-						console.log(error);
-					});
-				}
-
-				function load() {
-					let elem = document.getElementById("id1");
-					elem.addEventListener("onClick", showHidden, false);
-				}
-
-				function showHidden(id) {
-					console.log(id);
-					getArticleData(id);
-
-					if (id.toString() === "id123") {
-						event.stopPropagation();
-						return;
-					}
-					if (id.toString() != "id1") {
-						document.getElementById("main-body").style.overflow = "hidden";
-						document.getElementById("id1").style.display = "block";
-						let inter = setInterval(frame, 5);
-						let top = 100;
-						function frame() {
-							if (top == 0) {
-								clearInterval(inter);
-							} else {
-								top -= 5;
-								document.getElementById("id1").style.top = top + "%";
-							}
-						}
-					} else {
-						document.getElementById("id1").style.display = "none";
-						document.getElementById("main-body").style.overflow = "scroll";
-					}
-				}
-			</script>
-    </body>
-</html>
+{% endblock content %}
