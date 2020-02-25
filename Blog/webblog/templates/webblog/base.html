@@ -24,7 +24,7 @@
 				</ul>
 			</nav>
 		</header>
-		<main>
+		<main class="main">
 			{% block content %}
 			{% endblock %}
 		</main>
@@ -97,10 +97,10 @@
 					if (id.toString() != "id1") {
 						document.getElementById("main-body").style.overflow = "hidden";
 						document.getElementById("id1").style.display = "block";
-						let inter = setInterval(frame, 5);
+						let inter = setInterval(frame, 10);
 						let top = 100;
 						function frame() {
-							if (top == 0) {
+							if (top == 10) {
 								clearInterval(inter);
 							} else {
 								top -= 5;

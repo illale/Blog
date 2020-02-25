@@ -23,7 +23,7 @@ body {
 }
 
 .card-hover {
-	width: 90%;
+  width: 90%;
   height: auto;
   border-radius: 0.5%;
   margin: 5% auto;
@@ -60,7 +60,7 @@ body {
 }
 
 .card-text-container {
-  text-align: ;
+  text-align: center;
   margin: 0 10%;
 }
 
@@ -100,6 +100,7 @@ body {
 		margin: 1%;
 		max-width: 20%;
 		left: 17.5%;
+		z-index: 0;
 	}
 
 	.card-hover-image {
@@ -138,12 +139,13 @@ body {
 		left: 0;
 		overflow-y: scroll;
 		overflow-x: hidden;
+		margin-bottom: 5%;
 	}
 	.article-text {
 		background-color: white;
 		height: auto;
 		width: 80%;
-		margin: 2% auto;
+		margin: 5% auto;
 		padding: 5%;
 		font-size: 1.4rem;
 		line-height: 1.2;
