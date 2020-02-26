@@ -46,6 +46,10 @@ body {
 	background-color: darkslateblue;
 }
 
+.article {
+	display: none;
+}
+
 .row::after {
 	content: "";
 	clear: both;
