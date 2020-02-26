@@ -1,15 +1,79 @@
-@media only screen and (min-width: 760px) {
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+    letter-spacing: 0.7;
+    font-size: 16px;
+}
 
-    * {
-        margin: 0;
-        padding: 0;
-        font-family: Roboto;
-        letter-spacing: 0.7;
-        
-    }
-    
+.header {
+    background-color: #e27d60;
+    padding: 2%;
+    margin-bottom: 15%;
+}
+
+.header-logo {
+    font-family: "Bungee Shade", cursive;
+    color: white;
+    text-align: left;
+    font-size: 5em;
+    width: auto;
+    display: inline-block;
+}
+
+.header .navigation .li-element {
+    list-style-type: none;
+    text-align: center;
+    display: block;
+    background-color: #29434e;
+    color: white;
+    padding: 0.5% 1%;
+    margin: 5% 0;
+}
+
+.li-element li {
+    margin: 5% 0;
+    padding: 10% 0;
+}
+
+.menu-containter {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    width: 20%;
+    bottom: 0.2em;
+}
+
+.menu-bar-1, .menu-bar-2, .menu-bar-3 {
+    width: 2.2em;
+    height: 0.3em;
+    border-radius: 10%;
+    background-color: white;
+    margin: 0.4em auto;
+    transition: 0.4s;
+}
+
+.change .menu-bar-1 {
+    -webkit-transform: rotate(-45deg) translate(-5px, 6px);
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.change .menu-bar-2 {
+    opacity: 0;
+}
+
+.change .menu-bar-3 {
+    -webkit-transform: rotate(45deg) translate(-9px, -10px);
+    transform: rotate(45deg) translate(-9px, -10px);
+}
+
+.navigation {
+    padding: 0 25%;
+    display: none;
+}
+
+@media only screen and (min-width: 760px) {    
     .header {
-        background-color: #00695c;
         display: block;
         height: 10%;
         padding: 1%;
@@ -18,15 +82,22 @@
         margin-bottom: 10%;
         z-index: 1;
     }
-      
+
+    .menu-containter {
+        display: none;
+    }
+
+    .menu-bar-1, .menu-bar-2, .menu-bar-3 {
+        display: none;
+    }
+
     .header-logo {
         float: left;
-        color: white;
         width: 10%;
         font-size: 300%;
-        padding-top: -10px;
-        font-family: "Bungee Shade", cursive;
+        margin-top: -0.35%;
         line-height: 1;
+        padding-left: 2%;
     }
     
     .header-image {
@@ -40,16 +111,27 @@
     .header .navigation .li-element{
         display: inline-block;
         background-color: #29434e;
-        padding: 10px 20px;
+        padding: 0.5% 1%;
         border-radius: 3%;
         font-weight: bold;
-        font-size: 30px;
-        margin: 0 10px;
+        font-size: 1.563vw;
+        margin: 0 0.5%;
         color: white;
         position: relative;
-        left: 65%;
+        left: 60%;
         border: 2px #e39673 solid;
         list-style-type: none;
+    }
+
+    .li-element li {
+        margin: 0;
+        padding: 0;
+        background-color: none;
+    }
+
+    .navigation {
+        padding: 0;
+        display: initial;
     }
     
     .header .navigation .li-element:hover {
@@ -58,10 +140,11 @@
     }
 
     .footer {
-        background-color: #00695c;
+        background-color: #e27d60;
         color: white;
         padding: 3%;
         font-size: 20px;
+        margin-top: 2%;
     }
     
     .footer-line {
@@ -78,6 +161,10 @@
         z-index: 0;
     }
     
+    .footer-li li {
+        list-style-type: none;
+    }
+
     .footer-address {
         margin-top: 3%;
         position: relative;
@@ -92,8 +179,9 @@
         font-style: italic;
         z-index: 0;
     }
+    
     .main {
-        padding-top: 10%;
+        padding-top: 7%;
         z-index: 0;
     }
 }

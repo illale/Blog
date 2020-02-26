@@ -12,10 +12,16 @@
 		<link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
 	</head>
-	<body  onload="load();" id="main-body" class="main-body">
+	<body onload="load();" id="main-body" class="main-body">
 		<header class="header">
 			<h1 class="header-logo"> Blog </h1>
+			<div class="menu-containter" onclick="changeMenu(this);">
+				<div class="menu-bar-1"></div>
+				<div class="menu-bar-2"></div>
+				<div class="menu-bar-3"></div>
+			</div>
 			<nav>
 				<ul class="navigation">
 					<a class="li-element"><li> Home </li></a>
@@ -74,6 +80,7 @@
 						document.getElementById("article-header").innerHTML = obj["article_header"];
 						document.getElementById("article-paragraph").innerHTML = obj["article_text"];
 						document.getElementById("article-image").src = obj["article_image"];
+						document.getElementById("article-date").innerHTML = obj["article_date"]
 					})
 					.catch(function(error) {
 						console.log(error);
@@ -85,7 +92,18 @@
 					elem.addEventListener("onClick", showHidden, false);
 				}
 
+				function changeMenu(x) {
+					console.log(x.classList);
+					x.classList.toggle("change");
+				}
+
 				function showHidden(id) {
+
+					if (screen.width < 768) {
+						console.log("Mobile");
+						return;
+					}
+
 					console.log(id);
 					let a = getArticleData(id);
 					console.log(a);

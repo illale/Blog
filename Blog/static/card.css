@@ -5,76 +5,45 @@
 }
 
 body {
-	background-color: #e3e1e1;
+	background-color: whitesmoke;
 	overflow-x: hidden;
 }
 
-.flex-container {
-  display: flex;
-}
-
-.card {
-  width: 50%;
-  margin: 0;
-  height: 250px;
-  background-color: #29434e;
-  padding-bottom: 3%;
-  padding-top: 1%;
-}
-
 .card-hover {
-  width: 90%;
-  height: auto;
+  width: 15%;
+  height: 15%;
   border-radius: 0.5%;
   margin: 5% auto;
-  background-color: #001a1c;
+  background-color: white;
   position: relative;
-  border: 2px #e3e1e1 solid;
+  border: 1px #e3e1e1 solid;
 }
 
 .card-heading {
-
-  width: 90%;
-  border-radius: 0.5%;
-  padding: 5px;
-  margin: 0px auto;
-  margin-bottom: 10px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.card-regular-image {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-}
-
-.card-image {
+  text-align: left;
   display: inline-block;
-  border-radius: 100%;
-  border: 1px black;
-  width: 50px;
-  float: left;
-  margin: 0 10px;
+  font-size: 1em;
+  margin: 2.0% 2.5%;
+
 }
 
-.card-text-container {
-  text-align: center;
-  margin: 0 10%;
+.card-hover-image {
+  height: auto;
+  width: 100%;
+  display: inline-block;
+  margin: 2.5% 0;
 }
 
-.card-text {
-  padding: 5px 25px;
-  margin: 5px 10px;
-  color: white;
-}
-.card-hover:hover {
-  box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.75);
+.tags {
+	display: inline-block;
 }
 
-.card .card-text a {
-  color: #e39673;
+.tag {
+	border-top-right-radius: 25%;
+	border-bottom-right-radius: 25%;
+	border: 1px solid black;
+	color: white;
+	background-color: darkslateblue;
 }
 
 .row::after {
@@ -101,31 +70,41 @@ body {
 		max-width: 20%;
 		left: 17.5%;
 		z-index: 0;
+		background-color: white;
+		font-family: Roboto;
+	}
+
+	.card-heading {
+		width: 90%;
+		padding: 5px;
+		margin: 0.5%;
+		margin-bottom: 0.5%;
+		color: black;
+		font-size: 20px;
+		font-family: "Sacramento";
+		text-align: left;
+		display: inline-block;
+	  }
+
+	.card-hover:hover {
+		box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.75);
 	}
 
 	.card-hover-image {
 		width: 100%;
-		height: 65%;
+		height: 75%;
+		margin: 0;
+		margin-top: 2%;
 	}
+
 	main-body {
 		margin: 0;
 		overflow: scroll;
 	}
+
 	.row {
 		display: flex;
 	}
-	.col-1 {width: 8.33%;}
-	.col-2 {width: 16.66%;}
-	.col-3 {width: 25%;}
-	.col-4 {width: 33.33%;}
-	.col-5 {width: 41.66%;}
-	.col-6 {width: 50%;}
-	.col-7 {width: 58.33%;}
-	.col-8 {width: 66.66%;}
-	.col-9 {width: 75%;}
-	.col-10 {width: 83.33%;}
-	.col-11 {width: 91.66%;}
-	.col-12 {width: 100%;}
 
 	.article {
 		display: none;
@@ -140,6 +119,7 @@ body {
 		overflow-y: scroll;
 		overflow-x: hidden;
 		margin-bottom: 5%;
+		padding-bottom: 5%;
 	}
 	.article-text {
 		background-color: white;
@@ -156,6 +136,7 @@ body {
 		border-width: 90%;
 		margin-bottom: 3%;
 		padding: 0;
+		padding-bottom: 1%;
 		text-align: center;
 	}
 
@@ -166,19 +147,51 @@ body {
 
 	.article-image {
 		width: 100%;
+		margin-bottom: 3%;
+	}
+
+	.article-writer {
+		margin: 3%;
+	}
+
+	#article-paragraph {
+		border-bottom: 1px solid black;
+		border-top: 1px solid black;
+		padding: 2% 0;
+		margin-top: 0.5%;
 	}
 
 	.article-profile {
 		border: 1px solid black;
 		border-radius: 100%;
 		width: 7.5%;
-		display: inline-block;
 		float: left;
-		margin: 0 2.5%;
+		margin-right: 4%;
+	}
+
+	.article-writer-name {
+		padding-top: 1.8%;
+		font-style: embed;
 	}
 
 	.stop-scrolling {
 		overflow: hidden;
 	}
 
+	.flex-container {
+		display: flex;
+  	}
+
+	.col-1 {width: 8.33%;}
+	.col-2 {width: 16.66%;}
+	.col-3 {width: 25%;}
+	.col-4 {width: 33.33%;}
+	.col-5 {width: 41.66%;}
+	.col-6 {width: 50%;}
+	.col-7 {width: 58.33%;}
+	.col-8 {width: 66.66%;}
+	.col-9 {width: 75%;}
+	.col-10 {width: 83.33%;}
+	.col-11 {width: 91.66%;}
+	.col-12 {width: 100%;}
 }

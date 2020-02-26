@@ -5,63 +5,66 @@
 {% block content %}
 			{% block body %}
       <div class="row">
-				<div class="card-hover col-3">
-					<img onclick="showHidden(9);" id="article" class="card-hover-image" src="{{ article1.article_image.url }}">
+				<div onclick="showHidden(9);" class="card-hover col-3">
 					<div class="card-heading">
-						<h1> {{ article1.article_header }}</h1>
+						<p> {{ article1.article_header }} </p>
+					</div>
+					<img id="article" class="card-hover-image" src="{{ article1.article_image.url }}">
+					<div class="tags">
+						<p class="tag"> Chars </p>
 					</div>
 				</div>
 				<div onclick="showHidden(8)" class="card-hover col-6">
-					<img class="card-hover-image" src="{{ article2.article_image.url }}">
 					<div class="card-heading">
-						<h1> {{ article2.article_header }} </h1>
+						<p> {{ article2.article_header }} </p>
 					</div>
+					<img class="card-hover-image" src="{{ article2.article_image.url }}">
 				</div>
 				<div onclick="showHidden(7)" class="card-hover col-9">
-					<img class="card-hover-image" src="{{ article3.article_image.url }}">
 					<div class="card-heading">
-						<h1> {{ article3.article_header }} </h1>
+						<p> {{ article3.article_header }} </p>
 					</div>
+					<img class="card-hover-image" src="{{ article3.article_image.url }}">
 				</div>
       </div>
 			<div class="row">
 				<div onclick="showHidden(6)" class="card-hover col-3">
-					<img class="card-hover-image" src="{{ article4.article_image.url }}">
-					<div class="card-text">
-						<h1> {{ article4.article_header }} </h1>
+					<div class="card-heading">
+						<p> {{ article4.article_header }} </p>
 					</div>
+					<img class="card-hover-image" src="{{ article4.article_image.url }}">
 				</div>
 				<div onclick="showHidden(5)" class="card-hover col-6">
-					<img class="card-hover-image" src="{{ article5.article_image.url }}">
-					<div class="card-text">
-						<h1> {{ article5.article_header }} </h1>
+					<div class="card-heading">
+						<p> {{ article5.article_header }} </p>
 					</div>
+				<img class="card-hover-image" src="{{ article5.article_image.url }}">
 				</div>
 				<div onclick="showHidden(4)" class="card-hover col-9">
-					<img class="card-hover-image" src="{{ article6.article_image.url }}">
-					<div class="card-text">
-						<h1> {{ article6.article_header }} </h1>
+					<div class="card-heading">
+						<p> {{ article6.article_header }} </p>
 					</div>
+					<img class="card-hover-image" src="{{ article6.article_image.url }}">
 				</div>
       </div>
 			<div class="row">
 				<div onclick="showHidden(3)" class="card-hover col-3">
-					<img class="card-hover-image" src="{{ article7.article_image.url }}">
-					<div class="card-text">
-						<h1> {{ article7.article_header }} </h1>
+					<div class="card-heading">
+						<p> {{ article7.article_header }} </p>
 					</div>
+					<img class="card-hover-image" src="{{ article7.article_image.url }}">
 				</div>
 				<div onclick="showHidden(2)" class="card-hover col-6">
-					<img class="card-hover-image" src="{{ article8.article_image.url }}">
-					<div class="card-text">
-						<h1> {{ article8.article_header }} </h1>
+					<div class="card-heading">
+						<p> {{ article8.article_header }} </p>
 					</div>
+					<img class="card-hover-image" src="{{ article8.article_image.url }}">
 				</div>
 				<div onclick="showHidden(1)" class="card-hover col-9">
-					<img class="card-hover-image" src="{{ article9.article_image.url }}">
-					<div class="card-text">
-						<h1> {{ article9.article_header }} </h1>
+					<div class="card-heading">
+						<p> {{ article9.article_header }} </p>
 					</div>
+					<img class="card-hover-image" src="{{ article9.article_image.url }}">
 				</div>
       </div>
 			<div onclick="showHidden('id1');" class="article" id="id1">
@@ -70,11 +73,12 @@
 						<h1 id="article-header"> </h1>
 					</div>
 					<img id="article-image" src="" alt="Picture related to Post" class="article-image">
+					<em id="article-date" style="font-size: 0.8em; margin-bottom: 2%;"> </em>
 					<p id="article-paragraph"> </p>
 					<div class="article-writer">
 						<img src="{% static 'profiili.png' %}" alt="Profile" class="article-profile">
-						<h3 style="line-height: 0.5; margin-top: 2%;"> Doge McDoggerson </h3>
-						<hp> Writer at Blog.blog.blogs.com </p>
+						<h3 class="article-writer-name"> Doge McDoggerson </h3>
+						<p class="article-writer-desc"> Writer at Blog.blog.blogs.com </p>
 					</div>
 				</div>
 			</div>
