@@ -16,7 +16,10 @@ class Comment(models.Model):
 	comment_text = models.CharField(max_length=600)
 	comment_article_id = models.IntegerField()
 	commentor_name = models.CharField(max_length=50)
-
+	comment_article = models.ForeignKey(Article, on_delete=models.CASCADE)
 
 	def __str__(self):
 		return self.commentor_name
+
+	class Meta:
+    	ordering = ["comment_date"]
