@@ -14,7 +14,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
 	</head>
-	<body onload="load();" id="main-body" class="main-body">
+	<body id="main-body" class="main-body">
 		<header class="header">
 			<h1 class="header-logo"> Blog </h1>
 			<div class="menu-containter" onclick="changeMenu(this);">
@@ -31,9 +31,16 @@
 			</nav>
 		</header>
 		<main class="main">
-			{% block content %}
-			{% endblock %}
+			<div id="content">
+				{% block content %}
+				{% endblock %}
+			</div>
 		</main>
+		<div>
+			<button id="button" type="button" class="load-button" onclick="loadMoreArticles(9);">
+				Load more
+			</button>
+		</div>
 		<footer class="footer">
 		<div class="flex-container">
 			<div class="footer-line">
@@ -68,19 +75,18 @@
 		</div>
 		</footer>
 		<script>
-				const url = "http://127.0.0.1:8000/home/restarticles/?format=json";
 				function getArticleData(id) {
-					let number = id;
+					let url = "http://127.0.0.1:8000/home/articles/";
+					url = url + id.toString();
 					fetch(url)
 					.then(function(response) {
 						return response.json();
 					})
 					.then(function(myJson, id) {
-						let obj = myJson[number - 1];
-						document.getElementById("article-header").innerHTML = obj["article_header"];
-						document.getElementById("article-paragraph").innerHTML = obj["article_text"];
-						document.getElementById("article-image").src = obj["article_image"];
-						document.getElementById("article-date").innerHTML = obj["article_date"]
+						document.getElementById("article-header").innerHTML = myJson["article_header"];
+						document.getElementById("article-paragraph").innerHTML = myJson["article_text"];
+						document.getElementById("article-image").src = myJson["article_image"];
+						document.getElementById("article-date").innerHTML = myJson["article_date"]
 					})
 					.catch(function(error) {
 						console.log(error);
@@ -97,23 +103,50 @@
 					x.classList.toggle("change");
 				}
 
-				function showHidden(id) {
+				function loadMoreArticles(amount) {
+					let number = 0;
+					for (let i = 0; i < amount; i++) {
+						if (i % 3 === 0) {
+							var node = document.createElement("DIV");
+							var id = "mane" + i.toString();
+							node.className = "row";
+							node.id = id
+							number = 0;
+							document.getElementById("content").appendChild(node)
+						}
+						let child = document.createElement("DIV");
+						child.className = "card-hover " + "col-" + (3 + number * 3).toString();
+						let header = document.createElement("DIV");
+						header.className = "card-heading";
+						let heading = document.createElement("P");
+						heading.innerText = "Heading";
+						let image = document.createElement("IMG");
+						image.className = "card-hover-image";
+						image.src = "https://s.ftcdn.net/v2013/pics/all/curated/RKyaEDwp8J7JKeZWQPuOVWvkUjGQfpCx_cover_580.jpg?r=1a0fc22192d0c808b8bb2b9bcfbf4a45b1793687";
+						header.appendChild(heading);
+						child.appendChild(header);
+						child.appendChild(image);
+						child.setAttribute("onclick", "showHidden(" + (i + 9).toString() + ");");
+						document.getElementById(id).appendChild(child);
+						number += 1;
+					}
+				}
 
+				function showHidden(id) {
+					console.log(id);
 					if (screen.width < 768) {
 						console.log("Mobile");
 						window.open("https://127.0.0.1/base.html");
 						return;
 					}
 
-					console.log(id);
-					let a = getArticleData(id);
-					console.log(a);
-
 					if (id.toString() === "id123") {
 						event.stopPropagation();
 						return;
 					}
+
 					if (id.toString() != "id1") {
+						let a = getArticleData(id);
 						document.getElementById("main-body").style.overflow = "hidden";
 						document.getElementById("id1").style.display = "block";
 						let inter = setInterval(frame, 10);

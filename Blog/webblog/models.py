@@ -12,6 +12,9 @@ class Article(models.Model):
 	def __str__(self):
 		return self.article_header
 
+	class Meta:
+		ordering = ["article_date"]
+
 class Comment(models.Model):
 	comment_date = models.DateTimeField(default=datetime.now())
 	comment_text = models.TextField()

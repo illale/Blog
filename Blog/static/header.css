@@ -183,4 +183,14 @@
         padding-top: 7%;
         z-index: 0;
     }
+
+    .load-button {
+        display: block;
+        padding: 1%;
+        background-color: #29434e;
+        color: white;
+        margin: 0 auto;
+        font-size: 2vw;     
+        cursor: pointer;
+    }
 }
