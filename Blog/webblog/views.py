@@ -1,12 +1,25 @@
 from django.shortcuts import render
-from .models import Article
-from rest_framework import viewsets
-from .serializers import ArticleSerializer
+from .models import Article, Comment
+from rest_framework import viewsets, generics
+from .serializers import ArticleSerializer, CommentSerializer
 # Create your views here.
 
 class ArticleView(viewsets.ModelViewSet):
 	queryset = Article.objects.all()
 	serializer_class = ArticleSerializer
+
+class ArticleDetail(generics.RetrieveAPIView):
+	queryset = Article.objects.all()
+	serializer_class = ArticleSerializer
+
+class CommentList(generics.ListCreateAPIView):
+	queryset = Comment.objects.all()
+	serializer_class = CommentSerializer
+
+class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = Comment.objects.all()
+	serializer_class = CommentSerializer
+
 
 def home(request):
 	articles = Article.objects.order_by("-article_date")
