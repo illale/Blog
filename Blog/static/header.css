@@ -123,6 +123,7 @@
         position: relative;
         left: 57.5%;
         list-style-type: none;
+        border: 2px solid black;
     }
 
     .li-element li {
@@ -151,7 +152,7 @@
     
     .footer-line {
         border-bottom: solid 1px black;
-        width: 95%;
+        width: 85%;
         margin: 0 auto;
         z-index: 0;
     }
@@ -194,13 +195,18 @@
         display: block;
         background-color: white;
         color: black;
-        margin: 0 auto;
-        font-size: 1em;     
+        margin: 3% auto;
+        text-align: center;
+        font-size: 2em;     
         cursor: pointer;
-        width: 3%;
-        border: 5px black solid;
+        padding: 0.5% 1%;
+        border: none;
         border-radius: 100%;
         user-select: none;
         -ms-user-select: none;
+    }
+
+    .load-button:hover {
+        box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.75);
     }
 }

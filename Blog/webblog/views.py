@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Article, Comment
 from rest_framework import viewsets, generics
+from rest_framework.response import Response
 from .serializers import ArticleSerializer, CommentSerializer
 # Create your views here.
 
@@ -20,6 +21,12 @@ class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
 	queryset = Comment.objects.all()
 	serializer_class = CommentSerializer
 
+class ArticleComments(generics.ListAPIView):
+	serializer_class = CommentSerializer
+
+	def get_queryset(self):
+		number = self.kwargs["pk"]
+		return Comment.objects.filter(comment_article=number)
 
 def home(request):
 	articles = Article.objects.order_by("-article_date")

@@ -71,7 +71,7 @@
 		</div>
 		<div class="flex-container">
 			<div class="footer-text">
-			<p>&copy;Aleksi Illikainen 2020 </p>
+			<p>&copy; Aleksi Illikainen 2020 </p>
 			</div>
 		</div>
 		</footer>
@@ -88,6 +88,36 @@
 						document.getElementById("article-paragraph").innerHTML = myJson["article_text"];
 						document.getElementById("article-image").src = myJson["article_image"];
 						document.getElementById("article-date").innerHTML = myJson["article_date"]
+					})
+					.catch(function(error) {
+						console.log(error);
+					});
+				}
+
+				function loadComments(id) {
+					let url = "http://127.0.0.1:8000/home/comments/list/" + id.toString();
+					fetch(url)
+					.then(function(response) {
+						return response.json();
+					})
+					.then(function(myJson) {
+						var child = document.createElement("DIV")
+						child.className = "article-comment-container";
+						document.getElementById("article-text")
+						for (let com in myJson) {
+							let single_comment = document.createElement("DIV");
+							let name = document.createElement("P");
+							let comment = document.createElement("P");
+							single_comment.className = "article-single-comment"
+							comment.innerText = myJson[com]["comment_text"]
+							name.innerText = myJson[com]["commentor_name"]
+							comment.className = "article-comment-paragraph";
+							name.className = "article-comment-name";
+							single_comment.appendChild(name);
+							single_comment.appendChild(comment);
+							child.appendChild(single_comment)
+						}
+						document.getElementById("id123").appendChild(child);
 					})
 					.catch(function(error) {
 						console.log(error);

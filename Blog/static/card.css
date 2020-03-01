@@ -79,20 +79,19 @@ body {
 	}
 
 	.card-heading {
-		width: 100%;
+		width: 90%;
 		height: auto;
-		padding: 1%;
-		margin: 1%;
+		padding: 5%;
+		left: 2.5%;
 		color: white;
-		font-size: 3.5em;
+		font-size: 3em;
 		word-wrap: break-word;
 		text-align: left;
 		display: inline-block;
 		position: absolute;
-		left: 0.1em;
-		top: 25%;
+		top: 10%;
 		text-decoration: underline;
-
+		border: 5px solid white;
 	  }
 
 	.card-hover:hover {
@@ -130,56 +129,101 @@ body {
 		padding-bottom: 5%;
 	}
 	.article-text {
-		background-color: white;
+		background-color: black;
 		height: auto;
 		width: 80%;
 		margin: 5% auto;
 		padding: 5%;
-		font-size: 1.4rem;
+		font-size: 1.2rem;
 		line-height: 1.2;
 		font-family: 'Open Sans';
+		position: relative;
+		left: 1%;
+		color: white;
 	}
 	.article-header-container {
-		border-bottom: 2px solid black;
+		border-bottom: 2px solid white;
 		border-width: 90%;
 		margin-bottom: 3%;
 		padding: 0;
 		padding-bottom: 1%;
 		text-align: center;
+		position: relative;
+		width: 40%;
+		display: inline-block;
 	}
 
 	#article-header {
 		margin-bottom: 0;
 		padding: 0;
+		font-size: 3.5em;
+		font-family: "Comfortaa";
 	}
 
 	.article-image {
-		width: 100%;
-		margin-bottom: 3%;
+		display: inline-block;
+		width: 50%;
+		max-height: 50%;
+		position: relative;
+		left: 2em;
+		top: 2em;
+		user-select: none;
 	}
 
 	.article-writer {
-		margin: 3%;
+		margin: 3% 0;
+		background-color: white;
+		width: 50%;
+		color: black;
+		padding: 1% 0.5%;
 	}
 
 	#article-paragraph {
 		border-bottom: 1px solid black;
 		border-top: 1px solid black;
-		padding: 2% 0;
+		padding: 2%;
 		margin-top: 0.5%;
+		background-color: white;
+		color: black;
+
+	}
+
+	.article-comment-container {
+		margin: 2.5 5%;
+		padding: 2%;
+		background-color: white;
+		color: black;
+	}
+
+	.article-single-comment {
+		margin: 2%;
+		border: 2px solid black;
+	}
+
+	.article-comment-name {
+		font-style: bold;
+		font-family: "Open Sans";
+		font-size: 1.2em;
+		margin: 1%;
+	}
+
+	.article-comment-paragraph {
+		font-family: "Open Sans";
+		margin-left: 1%;
 	}
 
 	.article-profile {
 		border: 1px solid black;
 		border-radius: 100%;
-		width: 7.5%;
+		width: 12.5%;
 		float: left;
 		margin-right: 4%;
 	}
 
 	.article-writer-name {
-		padding-top: 1.8%;
+		padding-top: 1%;
 		font-style: embed;
+		color: black;
 	}
 
 	.stop-scrolling {

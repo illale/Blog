@@ -10,5 +10,6 @@ urlpatterns = [
 	path('rest', include(router.urls)),
 	path('articles/<int:pk>', views.ArticleDetail.as_view()),
 	path('comments', views.CommentList.as_view()),
-	path('comments/<int:pk>', views.CommentDetail.as_view())
+	path('comments/<int:pk>', views.CommentDetail.as_view()),
+	path('comments/list/<int:pk>', views.ArticleComments.as_view()),
 ]
