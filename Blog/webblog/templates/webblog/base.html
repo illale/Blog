@@ -13,6 +13,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
 	</head>
 	<body id="main-body" class="main-body">
 		<header class="header">
@@ -38,7 +39,7 @@
 		</main>
 		<div>
 			<button id="button" type="button" class="load-button" onclick="loadMoreArticles(9);">
-				Load more
+				+
 			</button>
 		</div>
 		<footer class="footer">
@@ -149,7 +150,7 @@
 						let a = getArticleData(id);
 						document.getElementById("main-body").style.overflow = "hidden";
 						document.getElementById("id1").style.display = "block";
-						let inter = setInterval(frame, 10);
+						let inter = setInterval(frame, 5);
 						let top = 100;
 						function frame() {
 							if (top == 10) {

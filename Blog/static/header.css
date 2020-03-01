@@ -1,12 +1,11 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Roboto;
     letter-spacing: 0.7
 }
 
 .header {
-    background-color: #e27d60;
+    background-color: white;
     padding: 2%;
     margin-bottom: 15%;
 }
@@ -28,6 +27,7 @@
     color: white;
     padding: 0.5% 1%;
     margin: 5% 0;
+    font-family: Roboto;
 }
 
 .li-element li {
@@ -80,6 +80,9 @@
         width: 100%;
         margin-bottom: 10%;
         z-index: 1;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 
     .menu-containter {
@@ -96,7 +99,8 @@
         font-size: 300%;
         margin-top: -0.35%;
         line-height: 1;
-        padding-left: 2%;
+        padding-left: 10%;
+        color: black;
     }
     
     .header-image {
@@ -109,16 +113,15 @@
     
     .header .navigation .li-element{
         display: inline-block;
-        background-color: #29434e;
+        background-color: white;
         padding: 0.5% 1%;
         border-radius: 3%;
         font-weight: bold;
         font-size: 1.563vw;
         margin: 0 0.5%;
-        color: white;
+        color: black;
         position: relative;
-        left: 60%;
-        border: 2px #e39673 solid;
+        left: 57.5%;
         list-style-type: none;
     }
 
@@ -134,29 +137,30 @@
     }
     
     .header .navigation .li-element:hover {
-        background-color: white;
-        color: #29434e;
+        background-color: black;
+        color: white;
     }
 
     .footer {
-        background-color: #e27d60;
-        color: white;
+        background-color: white;
+        color: black;
         padding: 3%;
         font-size: 20px;
         margin-top: 2%;
     }
     
     .footer-line {
-        border-bottom: solid 1px white;
+        border-bottom: solid 1px black;
         width: 95%;
         margin: 0 auto;
         z-index: 0;
     }
     
     .footer-li {
+        font-family: Roboto;
         margin-top: 3%;
         position: relative;
-        left: 35%;
+        left: 32.5%;
         z-index: 0;
     }
     
@@ -165,15 +169,17 @@
     }
 
     .footer-address {
+        font-family: Roboto;
         margin-top: 3%;
         position: relative;
-        left: 50%;
+        left: 45%;
         z-index: 0;
     }
     
     .footer-text {
+        font-family: Roboto;
         position: relative;
-        left: 43%;
+        left: 40%;
         margin-top: 5%;
         font-style: italic;
         z-index: 0;
@@ -186,11 +192,15 @@
 
     .load-button {
         display: block;
-        padding: 1%;
-        background-color: #29434e;
-        color: white;
+        background-color: white;
+        color: black;
         margin: 0 auto;
-        font-size: 2vw;     
+        font-size: 1em;     
         cursor: pointer;
+        width: 3%;
+        border: 5px black solid;
+        border-radius: 100%;
+        user-select: none;
+        -ms-user-select: none;
     }
 }
