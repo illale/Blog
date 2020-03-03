@@ -197,19 +197,26 @@ body {
 
 	.article-single-comment {
 		margin: 2%;
-		border: 2px solid black;
+		border-left: 2px solid black;
 	}
 
 	.article-comment-name {
 		font-style: bold;
 		font-family: "Open Sans";
+		border-bottom: 1px solid black;
 		font-size: 1.2em;
 		margin: 1%;
+	}
+
+	.article-comment-date {
+		margin: 1%;
+		font-size: 0.5em;
 	}
 
 	.article-comment-paragraph {
 		font-family: "Open Sans";
 		margin-left: 1%;
+		margin-bottom: 1%;
 	}
 
 	.article-profile {
@@ -226,13 +233,24 @@ body {
 		color: black;
 	}
 
+	.article-form {
+		margin-top: 5%;
+	}
+
+	.form-name {
+		display: inline-block;
+		width: 100%;
+	}
+
 	.stop-scrolling {
 		overflow: hidden;
 	}
 
 	.flex-container {
 		display: flex;
-  	}
+	}
+	  
+
 
 	.col-1 {width: 8.33%;}
 	.col-2 {width: 16.66%;}

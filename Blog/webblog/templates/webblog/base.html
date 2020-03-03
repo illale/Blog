@@ -113,12 +113,16 @@
 							let single_comment = document.createElement("DIV");
 							let name = document.createElement("P");
 							let comment = document.createElement("P");
+							let date = document.createElement("P");
+							comment.innerText = myJson[com]["comment_text"];
+							name.innerText = myJson[com]["commentor_name"];
+							date.innerText = myJson[com]["comment_date"];
 							single_comment.className = "article-single-comment"
-							comment.innerText = myJson[com]["comment_text"]
-							name.innerText = myJson[com]["commentor_name"]
 							comment.className = "article-comment-paragraph";
 							name.className = "article-comment-name";
+							date.className = "article-comment-date";
 							single_comment.appendChild(name);
+							single_comment.appendChild(date);
 							single_comment.appendChild(comment);
 							child.appendChild(single_comment)
 						}
