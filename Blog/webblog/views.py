@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from .models import Article, Comment
+from django.http import HttpResponseRedirect
+from .models import Article, Comment, CommentForm
 from rest_framework import viewsets, generics
 from rest_framework.response import Response
 from .serializers import ArticleSerializer, CommentSerializer
+from rest_framework.permissions import AllowAny
 # Create your views here.
 
 class ArticleView(viewsets.ModelViewSet):
@@ -26,6 +28,7 @@ class ArticleComments(generics.ListAPIView):
 
 	def get_queryset(self):
 		number = self.kwargs["pk"]
+		print(number)
 		return Comment.objects.filter(comment_article=number)
 
 def home(request):
@@ -40,5 +43,15 @@ def home(request):
 		'article7': articles[6],
 		'article8': articles[7],
 		'article9': articles[8],
+		'form': CommentForm(),
 	}
 	return render(request, 'webblog/home.html', context)
+
+def saveform(request):
+	form = CommentForm(request.POST or None)
+	if form.is_valid():
+		form.save()
+
+	return HttpResponseRedirect('http://127.0.0.1:8000/home/')
+
+

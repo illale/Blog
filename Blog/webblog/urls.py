@@ -12,4 +12,5 @@ urlpatterns = [
 	path('comments', views.CommentList.as_view()),
 	path('comments/<int:pk>', views.CommentDetail.as_view()),
 	path('comments/list/<int:pk>', views.ArticleComments.as_view()),
+	path('comments/create', views.saveform, name="saveform"),
 ]

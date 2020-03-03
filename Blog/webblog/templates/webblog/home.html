@@ -4,19 +4,19 @@
 
 {% block content %}
       <div class="row">
-				<div onclick="showHidden(9);" class="card-hover col-3">
+				<div onclick="showHidden(9); loadComments(9);" class="card-hover col-3">
 					<img id="article" class="card-hover-image" src="{{ article1.article_image.url }}">
 					<div class="card-heading">
 						<p> {{ article1.article_header }} </p>
 					</div>
 				</div>
-				<div onclick="showHidden(8)" class="card-hover col-6">
+				<div onclick="showHidden(8); loadComments(8);" class="card-hover col-6">
 					<img class="card-hover-image" src="{{ article2.article_image.url }}">
 					<div class="card-heading">
 						<p> {{ article2.article_header }} </p>
 					</div>
 				</div>
-				<div onclick="showHidden(7)" class="card-hover col-9">
+				<div onclick="showHidden(7); loadComments(7);" class="card-hover col-9">
 					<img class="card-hover-image" src="{{ article3.article_image.url }}">
 					<div class="card-heading">
 						<p> {{ article3.article_header }} </p>
@@ -24,19 +24,19 @@
 				</div>
       </div>
 			<div class="row">
-				<div onclick="showHidden(6)" class="card-hover col-3">
+				<div onclick="showHidden(6); loadComments(6);" class="card-hover col-3">
 					<img class="card-hover-image" src="{{ article4.article_image.url }}">
 					<div class="card-heading">
 						<p> {{ article4.article_header }} </p>
 					</div>
 				</div>
-				<div onclick="showHidden(5)" class="card-hover col-6">
+				<div onclick="showHidden(5); loadComments(5);" class="card-hover col-6">
 					<img class="card-hover-image" src="{{ article5.article_image.url }}">
 					<div class="card-heading">
 						<p> {{ article5.article_header }} </p>
 					</div>
 				</div>
-				<div onclick="showHidden(4)" class="card-hover col-9">
+				<div onclick="showHidden(4); loadComments(4);" class="card-hover col-9">
 					<img class="card-hover-image" src="{{ article6.article_image.url }}">
 					<div class="card-heading">
 						<p> {{ article6.article_header }} </p>
@@ -44,13 +44,13 @@
 				</div>
       </div>
 			<div class="row">
-				<div onclick="showHidden(3)" class="card-hover col-3">
+				<div onclick="showHidden(3); loadComments(3);" class="card-hover col-3">
 					<img class="card-hover-image" src="{{ article7.article_image.url }}">
 					<div class="card-heading">
 						<p> {{ article7.article_header }} </p>
 					</div>
 				</div>
-				<div onclick="showHidden(2)" class="card-hover col-6">
+				<div onclick="showHidden(2); loadComments(2);" class="card-hover col-6">
 					<img class="card-hover-image" src="{{ article8.article_image.url }}">
 					<div class="card-heading">
 						<p> {{ article8.article_header }} </p>
@@ -75,6 +75,31 @@
 						<img src="{% static 'profiili.png' %}" alt="Profile" class="article-profile">
 						<h3 class="article-writer-name"> Doge McDoggerson </h3>
 						<p class="article-writer-desc"> Writer at Blog.blog.blogs.com </p>
+					</div>
+					<div class="article-comments-container">
+						<div id="article-comments">
+
+						</div>
+						<div class="article-form">
+							<form action="http://127.0.0.1:8000/home/comments/create" method="post">
+								{% csrf_token %}
+								<div class="form-container">
+									<div class="form-name">
+										{{ form.commentor_name }}
+									</div>
+									<div class="form-text">
+										{{ form.comment_text }}
+									</div>			
+									<div class="form-date">
+										{{ form.comment_date }}
+									</div>
+									<div class="form-article">
+										{{ form.comment_article.as_hidden }}
+									</div>
+								</div>										
+								<input type="submit" value="Submit">
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>

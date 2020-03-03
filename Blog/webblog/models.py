@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 from datetime import datetime
 
 # Create your models here.
@@ -18,7 +19,7 @@ class Article(models.Model):
 class Comment(models.Model):
 	comment_date = models.DateTimeField(default=datetime.now())
 	comment_text = models.TextField()
-	commentor_name = models.CharField(max_length=50)
+	commentor_name = models.CharField(max_length=20)
 	comment_article = models.ForeignKey(Article, on_delete=models.CASCADE)
 
 	def __str__(self):
@@ -26,3 +27,9 @@ class Comment(models.Model):
 
 	class Meta:
 		ordering = ["comment_date"]
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = Comment
+        fields = ["commentor_name", "comment_text", "comment_date", "comment_article"]
+

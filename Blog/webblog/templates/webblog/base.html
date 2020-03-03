@@ -94,8 +94,13 @@
 					});
 				}
 
+				function setArticleId(id) {
+					document.getElementById("id_comment_article").value = id;
+				}
+
 				function loadComments(id) {
 					let url = "http://127.0.0.1:8000/home/comments/list/" + id.toString();
+					setArticleId(id);
 					fetch(url)
 					.then(function(response) {
 						return response.json();
@@ -117,7 +122,7 @@
 							single_comment.appendChild(comment);
 							child.appendChild(single_comment)
 						}
-						document.getElementById("id123").appendChild(child);
+						document.getElementById("article-comments").appendChild(child);
 					})
 					.catch(function(error) {
 						console.log(error);
@@ -146,12 +151,12 @@
 							document.getElementById("content").appendChild(node)
 						}
 						let child = document.createElement("DIV");
-						child.className = "card-hover " + "col-" + (3 + number * 3).toString();
 						let header = document.createElement("DIV");
-						header.className = "card-heading";
-						let heading = document.createElement("P");
-						heading.innerText = "Heading";
 						let image = document.createElement("IMG");
+						
+						child.className = "card-hover " + "col-" + (3 + number * 3).toString();
+						header.className = "card-heading";
+						heading.innerText = "Heading";
 						image.className = "card-hover-image";
 						image.src = "https://s.ftcdn.net/v2013/pics/all/curated/RKyaEDwp8J7JKeZWQPuOVWvkUjGQfpCx_cover_580.jpg?r=1a0fc22192d0c808b8bb2b9bcfbf4a45b1793687";
 						header.appendChild(heading);
@@ -163,11 +168,20 @@
 					}
 				}
 
+				function removeChildren(element) {
+					let child = element.lastChild;
+					while (child) {
+						element.removeChild(child)
+						child = element.lastChild;
+					}
+					console.log("Done");
+				}
+
 				function showHidden(id) {
 					console.log(id);
 					if (screen.width < 768) {
 						console.log("Mobile");
-						window.open("https://127.0.0.1/base.html");
+						window.open("https://www.google.com");
 						return;
 					}
 
@@ -178,10 +192,11 @@
 
 					if (id.toString() != "id1") {
 						let a = getArticleData(id);
-						document.getElementById("main-body").style.overflow = "hidden";
-						document.getElementById("id1").style.display = "block";
 						let inter = setInterval(frame, 5);
 						let top = 100;
+
+						document.getElementById("main-body").style.overflow = "hidden";
+						document.getElementById("id1").style.display = "block";
 						function frame() {
 							if (top == 10) {
 								clearInterval(inter);
@@ -191,9 +206,11 @@
 							}
 						}
 					} else {
+						removeChildren(document.getElementById("article-comments"))
 						document.getElementById("id1").scrollTop = 0;
 						document.getElementById("id1").style.display = "none";
 						document.getElementById("main-body").style.overflow = "scroll";
+						
 					}
 				}
 		</script>
