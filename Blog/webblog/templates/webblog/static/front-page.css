@@ -1,0 +1,11 @@
+@media only screen and (min-width: 760px) {
+    .front-page-image {
+        display: inline-block;
+        height: 200px;
+        width: 200px;
+    }
+    .front-page-image-container {
+        height: 5em;
+        width: 5em;
+    }
+}

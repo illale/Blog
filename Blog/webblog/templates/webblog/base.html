@@ -9,11 +9,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="{% static 'card.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'front-page.css' %}">
 		<link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+		
 	</head>
 	<body id="main-body" class="main-body">
 		<header class="header">
@@ -25,23 +27,16 @@
 			</div>
 			<nav>
 				<ul class="navigation">
-					<a class="li-element"><li> Home </li></a>
+					<a class="li-element" href="http://127.0.0.1:8000"><li> Home </li></a>
 					<a class="li-element"><li> About </li></a>
-					<a class="li-element"><li> Search </li></a>
+					<a class="li-element" href="http://127.0.0.1:8000/articles"><li> Articles </li></a>
 				</ul>
 			</nav>
 		</header>
 		<main class="main">
-			<div id="content">
-				{% block content %}
-				{% endblock %}
-			</div>
+			{% block content %}
+			{% endblock %}
 		</main>
-		<div>
-			<button id="button" type="button" class="load-button" onclick="loadMoreArticles(9);">
-				+
-			</button>
-		</div>
 		<footer class="footer">
 		<div class="flex-container">
 			<div class="footer-line">
@@ -87,7 +82,7 @@
 						document.getElementById("article-header").innerHTML = myJson["article_header"];
 						document.getElementById("article-paragraph").innerHTML = myJson["article_text"];
 						document.getElementById("article-image").src = myJson["article_image"];
-						document.getElementById("article-date").innerHTML = myJson["article_date"]
+						document.getElementById("article-date").innerHTML = myJson["article_date"];
 					})
 					.catch(function(error) {
 						console.log(error);
@@ -157,7 +152,7 @@
 						let child = document.createElement("DIV");
 						let header = document.createElement("DIV");
 						let image = document.createElement("IMG");
-						
+						let heading = document.createElement("P");
 						child.className = "card-hover " + "col-" + (3 + number * 3).toString();
 						header.className = "card-heading";
 						heading.innerText = "Heading";

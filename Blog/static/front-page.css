@@ -1,0 +1,96 @@
+@media only screen and (min-width: 760px) {
+    .front-page-image {
+        height: auto;
+        width: 100%;
+    }
+    .front-page-image-container {
+        height: 50em;
+        display: block;
+        overflow: hidden;
+        width: 100%;
+        margin-top: -5%;
+        background-image: url("newspapers-4565916_1920.jpg");
+        background-position: center bottom;
+    }
+
+    .front-page-text-container {
+        color: black;
+        background-color: white;
+        display: inline-block;
+        position: absolute;
+        left: 21.4%;
+        top: 25%;
+        width: 60%;
+        z-index: 0;
+        font-family: "Roboto";
+        padding-bottom: 2%;
+    }
+
+    .front-page-headline {
+        font-size: 2em;
+        border-bottom: 5px black solid;
+        margin: 2.5%;
+    }
+
+    .front-page-subline {
+        font-size: 1.4em;
+        margin: 0 2.5%;
+    }
+
+    .subscribe-form {
+        position: absolute;
+        top: 65%;
+        left: 21.4%;
+        background-color: white;
+        width: 60%;
+        z-index: 0;
+    }
+
+    .subscribe-form h3 {
+        margin: 1%;
+        font-weight: bold;
+        font-family: "Roboto";
+        border-bottom: 2px solid black;
+    }
+
+    #form-button {
+        background-color: white;
+        border: 2px black solid;
+        color: black;
+        width: 5em;
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 2%;
+        font-family: "Roboto";
+    }
+
+    input[type="text"] {
+        width: 50em;
+    }
+
+    input[type="email"] {
+        width: 50em;
+    }
+
+    .subscribe-name {
+        margin: 1%;
+        font-size: 1.5em;
+        font-weight: bold;
+        font-family: "Roboto";
+    }
+    
+    .subscribe-email {
+        margin: 1%;
+        font-size: 1.5em;
+        font-weight: bold;
+        font-family: "Roboto";
+    }
+
+    #form-button:hover {
+        background-color: black;
+        color: white;
+    }
+
+
+
+}

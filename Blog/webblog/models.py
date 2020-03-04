@@ -33,3 +33,22 @@ class CommentForm(ModelForm):
         model = Comment
         fields = ["commentor_name", "comment_text", "comment_date", "comment_article"]
 
+class Subscibe(models.Model):
+	date = models.DateTimeField(auto_now_add=True)
+	email = models.EmailField()
+	name = models.CharField(max_length=30)
+
+	def __str__(self):
+		return self.name
+
+	class Meta:
+		ordering = ["date"]
+
+class SubscibeForm(ModelForm):
+	class Meta:
+		model = Subscibe
+		fields = ["name", "email", "name"]
+
+
+
+

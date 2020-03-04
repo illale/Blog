@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from .models import Article, Comment, CommentForm
+from .models import Article, Comment, CommentForm, Subscibe, SubscibeForm
 from rest_framework import viewsets, generics
 from rest_framework.response import Response
 from .serializers import ArticleSerializer, CommentSerializer
@@ -31,6 +31,15 @@ class ArticleComments(generics.ListAPIView):
 		print(number)
 		return Comment.objects.filter(comment_article=number)
 
+class MostRecentArticle(generics.RetrieveAPIView):
+	serializer_class = ArticleSerializer
+	queryset = Article.objects.all()
+
+	def get(self, request):
+		article = self.queryset.latest("article_date")
+		serializer = ArticleSerializer(article, many=False)
+		return Response(serializer.data)
+
 def home(request):
 	articles = Article.objects.order_by("-article_date")
 	context = {
@@ -47,6 +56,13 @@ def home(request):
 	}
 	return render(request, 'webblog/home.html', context)
 
+def saveEmail(request):
+	form = SubscibeForm(request.POST or None)
+	if form.is_valid():
+		form.save()
+
+	return HttpResponseRedirect('http://127.0.0.1:8000')
+
 def saveform(request):
 	form = CommentForm(request.POST or None)
 	if form.is_valid():
@@ -54,4 +70,6 @@ def saveform(request):
 
 	return HttpResponseRedirect('http://127.0.0.1:8000/home/')
 
-
+def front(request):
+	context = {'form': SubscibeForm(),}
+	return render(request, 'webblog/frontpage.html', context)

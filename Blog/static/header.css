@@ -72,6 +72,7 @@
 }
 
 @media only screen and (min-width: 760px) {    
+
     .header {
         display: block;
         height: 10%;
@@ -121,9 +122,10 @@
         margin: 0 0.5%;
         color: black;
         position: relative;
-        left: 57.5%;
+        left: 56.8%;
         list-style-type: none;
         border: 2px solid black;
+        text-decoration: none;
     }
 
     .li-element li {
